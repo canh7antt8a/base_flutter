@@ -22,15 +22,15 @@ class AppApiService {
     required String password,
   }) async {
     return _noneAuthAppServerApiClient.request(
-      method: RestMethod.post,
-      path: '/v1/auth/login',
-      body: {
-        'email': email,
-        'password': password,
-      },
-      decoder: (json) =>
-          ApiAuthResponseData.fromJson(json as Map<String, dynamic>),
-    );
+        method: RestMethod.post,
+        // path: '/v1/auth/login',
+        path: '/api/login',
+        body: {
+          'email': email,
+          'password': password,
+        },
+        decoder: (json) =>
+            ApiAuthResponseData.fromJson(json as Map<String, dynamic>));
   }
 
   Future<void> logout() async {

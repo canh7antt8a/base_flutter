@@ -6,13 +6,7 @@ part 'api_auth_response_data.g.dart';
 @freezed
 class ApiAuthResponseData with _$ApiAuthResponseData {
   const factory ApiAuthResponseData({
-    @JsonKey(name: 'access_token') String? accessToken,
-    @JsonKey(name: 'id') int? id,
-    @JsonKey(name: 'email') String? email,
-    @JsonKey(name: 'username') String? username,
-    @JsonKey(name: 'name') String? name,
-    @JsonKey(name: 'gender') String? gender,
-    @JsonKey(name: 'age_range') String? ageRange,
+    @JsonKey(name: 'token') String? accessToken,
   }) = _ApiAuthResponseData;
 
   factory ApiAuthResponseData.fromJson(Map<String, dynamic> json) =>

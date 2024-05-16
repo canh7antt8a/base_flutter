@@ -30,6 +30,6 @@ class UrlConstants {
   // }
 
   static String get appApiBaseUrl {
-    return 'http://api.dev.nals.vn/api';
+    return 'https://reqres.in';
   }
 }

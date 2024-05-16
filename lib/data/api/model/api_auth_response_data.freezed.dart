@@ -20,20 +20,8 @@ ApiAuthResponseData _$ApiAuthResponseDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ApiAuthResponseData {
-  @JsonKey(name: 'access_token')
+  @JsonKey(name: 'token')
   String? get accessToken => throw _privateConstructorUsedError;
-  @JsonKey(name: 'id')
-  int? get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'email')
-  String? get email => throw _privateConstructorUsedError;
-  @JsonKey(name: 'username')
-  String? get username => throw _privateConstructorUsedError;
-  @JsonKey(name: 'name')
-  String? get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'gender')
-  String? get gender => throw _privateConstructorUsedError;
-  @JsonKey(name: 'age_range')
-  String? get ageRange => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,14 +35,7 @@ abstract class $ApiAuthResponseDataCopyWith<$Res> {
           ApiAuthResponseData value, $Res Function(ApiAuthResponseData) then) =
       _$ApiAuthResponseDataCopyWithImpl<$Res, ApiAuthResponseData>;
   @useResult
-  $Res call(
-      {@JsonKey(name: 'access_token') String? accessToken,
-      @JsonKey(name: 'id') int? id,
-      @JsonKey(name: 'email') String? email,
-      @JsonKey(name: 'username') String? username,
-      @JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'gender') String? gender,
-      @JsonKey(name: 'age_range') String? ageRange});
+  $Res call({@JsonKey(name: 'token') String? accessToken});
 }
 
 /// @nodoc
@@ -71,41 +52,11 @@ class _$ApiAuthResponseDataCopyWithImpl<$Res, $Val extends ApiAuthResponseData>
   @override
   $Res call({
     Object? accessToken = freezed,
-    Object? id = freezed,
-    Object? email = freezed,
-    Object? username = freezed,
-    Object? name = freezed,
-    Object? gender = freezed,
-    Object? ageRange = freezed,
   }) {
     return _then(_value.copyWith(
       accessToken: freezed == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gender: freezed == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as String?,
-      ageRange: freezed == ageRange
-          ? _value.ageRange
-          : ageRange // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -119,14 +70,7 @@ abstract class _$$ApiAuthResponseDataImplCopyWith<$Res>
       __$$ApiAuthResponseDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@JsonKey(name: 'access_token') String? accessToken,
-      @JsonKey(name: 'id') int? id,
-      @JsonKey(name: 'email') String? email,
-      @JsonKey(name: 'username') String? username,
-      @JsonKey(name: 'name') String? name,
-      @JsonKey(name: 'gender') String? gender,
-      @JsonKey(name: 'age_range') String? ageRange});
+  $Res call({@JsonKey(name: 'token') String? accessToken});
 }
 
 /// @nodoc
@@ -141,41 +85,11 @@ class __$$ApiAuthResponseDataImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? accessToken = freezed,
-    Object? id = freezed,
-    Object? email = freezed,
-    Object? username = freezed,
-    Object? name = freezed,
-    Object? gender = freezed,
-    Object? ageRange = freezed,
   }) {
     return _then(_$ApiAuthResponseDataImpl(
       accessToken: freezed == accessToken
           ? _value.accessToken
           : accessToken // ignore: cast_nullable_to_non_nullable
-              as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: freezed == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String?,
-      gender: freezed == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as String?,
-      ageRange: freezed == ageRange
-          ? _value.ageRange
-          : ageRange // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -184,43 +98,18 @@ class __$$ApiAuthResponseDataImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ApiAuthResponseDataImpl implements _ApiAuthResponseData {
-  const _$ApiAuthResponseDataImpl(
-      {@JsonKey(name: 'access_token') this.accessToken,
-      @JsonKey(name: 'id') this.id,
-      @JsonKey(name: 'email') this.email,
-      @JsonKey(name: 'username') this.username,
-      @JsonKey(name: 'name') this.name,
-      @JsonKey(name: 'gender') this.gender,
-      @JsonKey(name: 'age_range') this.ageRange});
+  const _$ApiAuthResponseDataImpl({@JsonKey(name: 'token') this.accessToken});
 
   factory _$ApiAuthResponseDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$ApiAuthResponseDataImplFromJson(json);
 
   @override
-  @JsonKey(name: 'access_token')
+  @JsonKey(name: 'token')
   final String? accessToken;
-  @override
-  @JsonKey(name: 'id')
-  final int? id;
-  @override
-  @JsonKey(name: 'email')
-  final String? email;
-  @override
-  @JsonKey(name: 'username')
-  final String? username;
-  @override
-  @JsonKey(name: 'name')
-  final String? name;
-  @override
-  @JsonKey(name: 'gender')
-  final String? gender;
-  @override
-  @JsonKey(name: 'age_range')
-  final String? ageRange;
 
   @override
   String toString() {
-    return 'ApiAuthResponseData(accessToken: $accessToken, id: $id, email: $email, username: $username, name: $name, gender: $gender, ageRange: $ageRange)';
+    return 'ApiAuthResponseData(accessToken: $accessToken)';
   }
 
   @override
@@ -229,21 +118,12 @@ class _$ApiAuthResponseDataImpl implements _ApiAuthResponseData {
         (other.runtimeType == runtimeType &&
             other is _$ApiAuthResponseDataImpl &&
             (identical(other.accessToken, accessToken) ||
-                other.accessToken == accessToken) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.email, email) || other.email == email) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.ageRange, ageRange) ||
-                other.ageRange == ageRange));
+                other.accessToken == accessToken));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, accessToken, id, email, username, name, gender, ageRange);
+  int get hashCode => Object.hash(runtimeType, accessToken);
 
   @JsonKey(ignore: true)
   @override
@@ -262,39 +142,15 @@ class _$ApiAuthResponseDataImpl implements _ApiAuthResponseData {
 
 abstract class _ApiAuthResponseData implements ApiAuthResponseData {
   const factory _ApiAuthResponseData(
-          {@JsonKey(name: 'access_token') final String? accessToken,
-          @JsonKey(name: 'id') final int? id,
-          @JsonKey(name: 'email') final String? email,
-          @JsonKey(name: 'username') final String? username,
-          @JsonKey(name: 'name') final String? name,
-          @JsonKey(name: 'gender') final String? gender,
-          @JsonKey(name: 'age_range') final String? ageRange}) =
+          {@JsonKey(name: 'token') final String? accessToken}) =
       _$ApiAuthResponseDataImpl;
 
   factory _ApiAuthResponseData.fromJson(Map<String, dynamic> json) =
       _$ApiAuthResponseDataImpl.fromJson;
 
   @override
-  @JsonKey(name: 'access_token')
+  @JsonKey(name: 'token')
   String? get accessToken;
-  @override
-  @JsonKey(name: 'id')
-  int? get id;
-  @override
-  @JsonKey(name: 'email')
-  String? get email;
-  @override
-  @JsonKey(name: 'username')
-  String? get username;
-  @override
-  @JsonKey(name: 'name')
-  String? get name;
-  @override
-  @JsonKey(name: 'gender')
-  String? get gender;
-  @override
-  @JsonKey(name: 'age_range')
-  String? get ageRange;
   @override
   @JsonKey(ignore: true)
   _$$ApiAuthResponseDataImplCopyWith<_$ApiAuthResponseDataImpl> get copyWith =>

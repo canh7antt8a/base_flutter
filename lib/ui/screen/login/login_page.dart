@@ -206,7 +206,8 @@ class _LoginPageState extends BasePageState<LoginPage, LoginCubit> {
                               if (isEnabbleButton == false) {
                                 return;
                               } else {
-                                navigator.replace(const AppRouteInfo.main());
+                                cubit.handleLogin();
+                                // navigator.replace(const AppRouteInfo.main());
                               }
                             },
                           ),

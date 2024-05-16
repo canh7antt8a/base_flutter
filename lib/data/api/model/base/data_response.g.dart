@@ -11,6 +11,7 @@ _$DataResponseImpl<T> _$$DataResponseImplFromJson<T>(
   T Function(Object? json) fromJsonT,
 ) =>
     _$DataResponseImpl<T>(
+      token: json['token'] as String?,
       data: _$nullableGenericFromJson(json['data'], fromJsonT),
       meta: json['meta'] == null
           ? null
@@ -22,6 +23,7 @@ Map<String, dynamic> _$$DataResponseImplToJson<T>(
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
+      'token': instance.token,
       'data': _$nullableGenericToJson(instance.data, toJsonT),
       'meta': instance.meta,
     };

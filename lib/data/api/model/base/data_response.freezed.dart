@@ -21,6 +21,8 @@ DataResponse<T> _$DataResponseFromJson<T>(
 
 /// @nodoc
 mixin _$DataResponse<T> {
+  @JsonKey(name: "token")
+  String? get token => throw _privateConstructorUsedError;
   @JsonKey(name: 'data')
   T? get data => throw _privateConstructorUsedError;
   @JsonKey(name: 'meta')
@@ -40,7 +42,9 @@ abstract class $DataResponseCopyWith<T, $Res> {
       _$DataResponseCopyWithImpl<T, $Res, DataResponse<T>>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'data') T? data, @JsonKey(name: 'meta') Meta? meta});
+      {@JsonKey(name: "token") String? token,
+      @JsonKey(name: 'data') T? data,
+      @JsonKey(name: 'meta') Meta? meta});
 
   $MetaCopyWith<$Res>? get meta;
 }
@@ -58,10 +62,15 @@ class _$DataResponseCopyWithImpl<T, $Res, $Val extends DataResponse<T>>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? token = freezed,
     Object? data = freezed,
     Object? meta = freezed,
   }) {
     return _then(_value.copyWith(
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -95,7 +104,9 @@ abstract class _$$DataResponseImplCopyWith<T, $Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'data') T? data, @JsonKey(name: 'meta') Meta? meta});
+      {@JsonKey(name: "token") String? token,
+      @JsonKey(name: 'data') T? data,
+      @JsonKey(name: 'meta') Meta? meta});
 
   @override
   $MetaCopyWith<$Res>? get meta;
@@ -112,10 +123,15 @@ class __$$DataResponseImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? token = freezed,
     Object? data = freezed,
     Object? meta = freezed,
   }) {
     return _then(_$DataResponseImpl<T>(
+      token: freezed == token
+          ? _value.token
+          : token // ignore: cast_nullable_to_non_nullable
+              as String?,
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -134,12 +150,17 @@ class _$DataResponseImpl<T>
     with DiagnosticableTreeMixin
     implements _DataResponse<T> {
   const _$DataResponseImpl(
-      {@JsonKey(name: 'data') this.data, @JsonKey(name: 'meta') this.meta});
+      {@JsonKey(name: "token") this.token,
+      @JsonKey(name: 'data') this.data,
+      @JsonKey(name: 'meta') this.meta});
 
   factory _$DataResponseImpl.fromJson(
           Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
       _$$DataResponseImplFromJson(json, fromJsonT);
 
+  @override
+  @JsonKey(name: "token")
+  final String? token;
   @override
   @JsonKey(name: 'data')
   final T? data;
@@ -149,7 +170,7 @@ class _$DataResponseImpl<T>
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DataResponse<$T>(data: $data, meta: $meta)';
+    return 'DataResponse<$T>(token: $token, data: $data, meta: $meta)';
   }
 
   @override
@@ -157,6 +178,7 @@ class _$DataResponseImpl<T>
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'DataResponse<$T>'))
+      ..add(DiagnosticsProperty('token', token))
       ..add(DiagnosticsProperty('data', data))
       ..add(DiagnosticsProperty('meta', meta));
   }
@@ -166,14 +188,15 @@ class _$DataResponseImpl<T>
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DataResponseImpl<T> &&
+            (identical(other.token, token) || other.token == token) &&
             const DeepCollectionEquality().equals(other.data, data) &&
             (identical(other.meta, meta) || other.meta == meta));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data), meta);
+  int get hashCode => Object.hash(
+      runtimeType, token, const DeepCollectionEquality().hash(data), meta);
 
   @JsonKey(ignore: true)
   @override
@@ -190,13 +213,17 @@ class _$DataResponseImpl<T>
 
 abstract class _DataResponse<T> implements DataResponse<T> {
   const factory _DataResponse(
-      {@JsonKey(name: 'data') final T? data,
+      {@JsonKey(name: "token") final String? token,
+      @JsonKey(name: 'data') final T? data,
       @JsonKey(name: 'meta') final Meta? meta}) = _$DataResponseImpl<T>;
 
   factory _DataResponse.fromJson(
           Map<String, dynamic> json, T Function(Object?) fromJsonT) =
       _$DataResponseImpl<T>.fromJson;
 
+  @override
+  @JsonKey(name: "token")
+  String? get token;
   @override
   @JsonKey(name: 'data')
   T? get data;

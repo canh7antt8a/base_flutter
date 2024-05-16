@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:base_flutter/data/api/client/base/api_client_default_settings.dart';
 import 'package:base_flutter/data/api/exception_mapper/dio_exception_mapper.dart';
 import 'package:base_flutter/data/api/mapper/base/base_error_response_mapper.dart';
@@ -56,7 +58,6 @@ class RestApiClient {
       if (response.data == null) {
         return null;
       }
-
       return BaseSuccessResponseMapper<D, T>.fromType(
         successResponseMapperType ?? this.successResponseMapperType,
       ).map(response: response.data, decoder: decoder);
