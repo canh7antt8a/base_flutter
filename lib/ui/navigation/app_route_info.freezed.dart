@@ -22,6 +22,7 @@ mixin _$AppRouteInfo {
     required TResult Function() login,
     required TResult Function() main,
     required TResult Function() survey,
+    required TResult Function(bool isLogin, String phoneNumber) verifyOtp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$AppRouteInfo {
     TResult? Function()? login,
     TResult? Function()? main,
     TResult? Function()? survey,
+    TResult? Function(bool isLogin, String phoneNumber)? verifyOtp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$AppRouteInfo {
     TResult Function()? login,
     TResult Function()? main,
     TResult Function()? survey,
+    TResult Function(bool isLogin, String phoneNumber)? verifyOtp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$AppRouteInfo {
     required TResult Function(_Login value) login,
     required TResult Function(_Main value) main,
     required TResult Function(_Survey value) survey,
+    required TResult Function(_VerifyOtp value) verifyOtp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$AppRouteInfo {
     TResult? Function(_Login value)? login,
     TResult? Function(_Main value)? main,
     TResult? Function(_Survey value)? survey,
+    TResult? Function(_VerifyOtp value)? verifyOtp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$AppRouteInfo {
     TResult Function(_Login value)? login,
     TResult Function(_Main value)? main,
     TResult Function(_Survey value)? survey,
+    TResult Function(_VerifyOtp value)? verifyOtp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +134,7 @@ class _$SplashImpl implements _Splash {
     required TResult Function() login,
     required TResult Function() main,
     required TResult Function() survey,
+    required TResult Function(bool isLogin, String phoneNumber) verifyOtp,
   }) {
     return splash();
   }
@@ -139,6 +146,7 @@ class _$SplashImpl implements _Splash {
     TResult? Function()? login,
     TResult? Function()? main,
     TResult? Function()? survey,
+    TResult? Function(bool isLogin, String phoneNumber)? verifyOtp,
   }) {
     return splash?.call();
   }
@@ -150,6 +158,7 @@ class _$SplashImpl implements _Splash {
     TResult Function()? login,
     TResult Function()? main,
     TResult Function()? survey,
+    TResult Function(bool isLogin, String phoneNumber)? verifyOtp,
     required TResult orElse(),
   }) {
     if (splash != null) {
@@ -165,6 +174,7 @@ class _$SplashImpl implements _Splash {
     required TResult Function(_Login value) login,
     required TResult Function(_Main value) main,
     required TResult Function(_Survey value) survey,
+    required TResult Function(_VerifyOtp value) verifyOtp,
   }) {
     return splash(this);
   }
@@ -176,6 +186,7 @@ class _$SplashImpl implements _Splash {
     TResult? Function(_Login value)? login,
     TResult? Function(_Main value)? main,
     TResult? Function(_Survey value)? survey,
+    TResult? Function(_VerifyOtp value)? verifyOtp,
   }) {
     return splash?.call(this);
   }
@@ -187,6 +198,7 @@ class _$SplashImpl implements _Splash {
     TResult Function(_Login value)? login,
     TResult Function(_Main value)? main,
     TResult Function(_Survey value)? survey,
+    TResult Function(_VerifyOtp value)? verifyOtp,
     required TResult orElse(),
   }) {
     if (splash != null) {
@@ -242,6 +254,7 @@ class _$LoginImpl implements _Login {
     required TResult Function() login,
     required TResult Function() main,
     required TResult Function() survey,
+    required TResult Function(bool isLogin, String phoneNumber) verifyOtp,
   }) {
     return login();
   }
@@ -253,6 +266,7 @@ class _$LoginImpl implements _Login {
     TResult? Function()? login,
     TResult? Function()? main,
     TResult? Function()? survey,
+    TResult? Function(bool isLogin, String phoneNumber)? verifyOtp,
   }) {
     return login?.call();
   }
@@ -264,6 +278,7 @@ class _$LoginImpl implements _Login {
     TResult Function()? login,
     TResult Function()? main,
     TResult Function()? survey,
+    TResult Function(bool isLogin, String phoneNumber)? verifyOtp,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -279,6 +294,7 @@ class _$LoginImpl implements _Login {
     required TResult Function(_Login value) login,
     required TResult Function(_Main value) main,
     required TResult Function(_Survey value) survey,
+    required TResult Function(_VerifyOtp value) verifyOtp,
   }) {
     return login(this);
   }
@@ -290,6 +306,7 @@ class _$LoginImpl implements _Login {
     TResult? Function(_Login value)? login,
     TResult? Function(_Main value)? main,
     TResult? Function(_Survey value)? survey,
+    TResult? Function(_VerifyOtp value)? verifyOtp,
   }) {
     return login?.call(this);
   }
@@ -301,6 +318,7 @@ class _$LoginImpl implements _Login {
     TResult Function(_Login value)? login,
     TResult Function(_Main value)? main,
     TResult Function(_Survey value)? survey,
+    TResult Function(_VerifyOtp value)? verifyOtp,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -355,6 +373,7 @@ class _$MainImpl implements _Main {
     required TResult Function() login,
     required TResult Function() main,
     required TResult Function() survey,
+    required TResult Function(bool isLogin, String phoneNumber) verifyOtp,
   }) {
     return main();
   }
@@ -366,6 +385,7 @@ class _$MainImpl implements _Main {
     TResult? Function()? login,
     TResult? Function()? main,
     TResult? Function()? survey,
+    TResult? Function(bool isLogin, String phoneNumber)? verifyOtp,
   }) {
     return main?.call();
   }
@@ -377,6 +397,7 @@ class _$MainImpl implements _Main {
     TResult Function()? login,
     TResult Function()? main,
     TResult Function()? survey,
+    TResult Function(bool isLogin, String phoneNumber)? verifyOtp,
     required TResult orElse(),
   }) {
     if (main != null) {
@@ -392,6 +413,7 @@ class _$MainImpl implements _Main {
     required TResult Function(_Login value) login,
     required TResult Function(_Main value) main,
     required TResult Function(_Survey value) survey,
+    required TResult Function(_VerifyOtp value) verifyOtp,
   }) {
     return main(this);
   }
@@ -403,6 +425,7 @@ class _$MainImpl implements _Main {
     TResult? Function(_Login value)? login,
     TResult? Function(_Main value)? main,
     TResult? Function(_Survey value)? survey,
+    TResult? Function(_VerifyOtp value)? verifyOtp,
   }) {
     return main?.call(this);
   }
@@ -414,6 +437,7 @@ class _$MainImpl implements _Main {
     TResult Function(_Login value)? login,
     TResult Function(_Main value)? main,
     TResult Function(_Survey value)? survey,
+    TResult Function(_VerifyOtp value)? verifyOtp,
     required TResult orElse(),
   }) {
     if (main != null) {
@@ -469,6 +493,7 @@ class _$SurveyImpl implements _Survey {
     required TResult Function() login,
     required TResult Function() main,
     required TResult Function() survey,
+    required TResult Function(bool isLogin, String phoneNumber) verifyOtp,
   }) {
     return survey();
   }
@@ -480,6 +505,7 @@ class _$SurveyImpl implements _Survey {
     TResult? Function()? login,
     TResult? Function()? main,
     TResult? Function()? survey,
+    TResult? Function(bool isLogin, String phoneNumber)? verifyOtp,
   }) {
     return survey?.call();
   }
@@ -491,6 +517,7 @@ class _$SurveyImpl implements _Survey {
     TResult Function()? login,
     TResult Function()? main,
     TResult Function()? survey,
+    TResult Function(bool isLogin, String phoneNumber)? verifyOtp,
     required TResult orElse(),
   }) {
     if (survey != null) {
@@ -506,6 +533,7 @@ class _$SurveyImpl implements _Survey {
     required TResult Function(_Login value) login,
     required TResult Function(_Main value) main,
     required TResult Function(_Survey value) survey,
+    required TResult Function(_VerifyOtp value) verifyOtp,
   }) {
     return survey(this);
   }
@@ -517,6 +545,7 @@ class _$SurveyImpl implements _Survey {
     TResult? Function(_Login value)? login,
     TResult? Function(_Main value)? main,
     TResult? Function(_Survey value)? survey,
+    TResult? Function(_VerifyOtp value)? verifyOtp,
   }) {
     return survey?.call(this);
   }
@@ -528,6 +557,7 @@ class _$SurveyImpl implements _Survey {
     TResult Function(_Login value)? login,
     TResult Function(_Main value)? main,
     TResult Function(_Survey value)? survey,
+    TResult Function(_VerifyOtp value)? verifyOtp,
     required TResult orElse(),
   }) {
     if (survey != null) {
@@ -539,4 +569,166 @@ class _$SurveyImpl implements _Survey {
 
 abstract class _Survey implements AppRouteInfo {
   const factory _Survey() = _$SurveyImpl;
+}
+
+/// @nodoc
+abstract class _$$VerifyOtpImplCopyWith<$Res> {
+  factory _$$VerifyOtpImplCopyWith(
+          _$VerifyOtpImpl value, $Res Function(_$VerifyOtpImpl) then) =
+      __$$VerifyOtpImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isLogin, String phoneNumber});
+}
+
+/// @nodoc
+class __$$VerifyOtpImplCopyWithImpl<$Res>
+    extends _$AppRouteInfoCopyWithImpl<$Res, _$VerifyOtpImpl>
+    implements _$$VerifyOtpImplCopyWith<$Res> {
+  __$$VerifyOtpImplCopyWithImpl(
+      _$VerifyOtpImpl _value, $Res Function(_$VerifyOtpImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isLogin = null,
+    Object? phoneNumber = null,
+  }) {
+    return _then(_$VerifyOtpImpl(
+      null == isLogin
+          ? _value.isLogin
+          : isLogin // ignore: cast_nullable_to_non_nullable
+              as bool,
+      null == phoneNumber
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$VerifyOtpImpl implements _VerifyOtp {
+  const _$VerifyOtpImpl(this.isLogin, this.phoneNumber);
+
+  @override
+  final bool isLogin;
+  @override
+  final String phoneNumber;
+
+  @override
+  String toString() {
+    return 'AppRouteInfo.verifyOtp(isLogin: $isLogin, phoneNumber: $phoneNumber)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$VerifyOtpImpl &&
+            (identical(other.isLogin, isLogin) || other.isLogin == isLogin) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                other.phoneNumber == phoneNumber));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isLogin, phoneNumber);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$VerifyOtpImplCopyWith<_$VerifyOtpImpl> get copyWith =>
+      __$$VerifyOtpImplCopyWithImpl<_$VerifyOtpImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() splash,
+    required TResult Function() login,
+    required TResult Function() main,
+    required TResult Function() survey,
+    required TResult Function(bool isLogin, String phoneNumber) verifyOtp,
+  }) {
+    return verifyOtp(isLogin, phoneNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? splash,
+    TResult? Function()? login,
+    TResult? Function()? main,
+    TResult? Function()? survey,
+    TResult? Function(bool isLogin, String phoneNumber)? verifyOtp,
+  }) {
+    return verifyOtp?.call(isLogin, phoneNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? splash,
+    TResult Function()? login,
+    TResult Function()? main,
+    TResult Function()? survey,
+    TResult Function(bool isLogin, String phoneNumber)? verifyOtp,
+    required TResult orElse(),
+  }) {
+    if (verifyOtp != null) {
+      return verifyOtp(isLogin, phoneNumber);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Splash value) splash,
+    required TResult Function(_Login value) login,
+    required TResult Function(_Main value) main,
+    required TResult Function(_Survey value) survey,
+    required TResult Function(_VerifyOtp value) verifyOtp,
+  }) {
+    return verifyOtp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Splash value)? splash,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_Main value)? main,
+    TResult? Function(_Survey value)? survey,
+    TResult? Function(_VerifyOtp value)? verifyOtp,
+  }) {
+    return verifyOtp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Splash value)? splash,
+    TResult Function(_Login value)? login,
+    TResult Function(_Main value)? main,
+    TResult Function(_Survey value)? survey,
+    TResult Function(_VerifyOtp value)? verifyOtp,
+    required TResult orElse(),
+  }) {
+    if (verifyOtp != null) {
+      return verifyOtp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _VerifyOtp implements AppRouteInfo {
+  const factory _VerifyOtp(final bool isLogin, final String phoneNumber) =
+      _$VerifyOtpImpl;
+
+  bool get isLogin;
+  String get phoneNumber;
+  @JsonKey(ignore: true)
+  _$$VerifyOtpImplCopyWith<_$VerifyOtpImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

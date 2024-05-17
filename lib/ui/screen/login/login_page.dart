@@ -4,11 +4,13 @@ import 'package:base_flutter/ui/resource/dimens/dimens.dart';
 import 'package:base_flutter/ui/resource/styles/app_colors.dart';
 import 'package:base_flutter/ui/resource/styles/app_text_styles.dart';
 import 'package:base_flutter/ui/screen/login/cubit/login_cubit.dart';
+import 'package:base_flutter/ui/screen/login/cubit/login_state.dart';
 import 'package:base_flutter/ui/share/button/base_button.dart';
 import 'package:base_flutter/ui/share/scaffold/base_page_state.dart';
 import 'package:base_flutter/ui/share/scaffold/base_screen.dart';
 import 'package:base_flutter/ui/share/textfield/app_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
@@ -24,20 +26,7 @@ class _LoginPageState extends BasePageState<LoginPage, LoginCubit> {
   String messageError = "";
   bool isEnabbleButton = false;
   String phoneNumber = "";
-  final listVtPhoneNumber = [
-    "086",
-    "096",
-    "097",
-    "098",
-    "032",
-    "033",
-    "034",
-    "035",
-    "036",
-    "037",
-    "038",
-    "039"
-  ];
+
   @override
   Widget buildPage(BuildContext context) {
     return BaseScreen(
@@ -116,20 +105,10 @@ class _LoginPageState extends BasePageState<LoginPage, LoginCubit> {
                                     phoneNumber = text;
                                   });
                                 } else if (text.length == 10) {
-                                  if (listVtPhoneNumber
-                                      .contains(text.substring(0, 3))) {
-                                    setState(() {
-                                      isEnabbleButton = true;
-                                      phoneNumber = text;
-                                    });
-                                  } else {
-                                    setState(() {
-                                      messageError =
-                                          "Vui lòng nhập đúng số điện thoại Viettel";
-                                      isEnabbleButton = false;
-                                      phoneNumber = text;
-                                    });
-                                  }
+                                  setState(() {
+                                    isEnabbleButton = true;
+                                    phoneNumber = text;
+                                  });
                                 } else {
                                   setState(() {
                                     isEnabbleButton = false;
@@ -196,19 +175,21 @@ class _LoginPageState extends BasePageState<LoginPage, LoginCubit> {
                         ),
                         Container(
                           margin: EdgeInsets.only(top: Dimens.d10.h),
-                          child: BaseButton(
-                            label: "Xác nhận",
-                            textColor: Colors.white,
-                            backgroundColor: isEnabbleButton == false
-                                ? const Color(0xffFDB3B5)
-                                : AppColors.current.primaryColor,
-                            onPress: () async {
-                              if (isEnabbleButton == false) {
-                                return;
-                              } else {
-                                cubit.handleLogin();
-                                // navigator.replace(const AppRouteInfo.main());
-                              }
+                          child: BlocBuilder<LoginCubit, LoginState>(
+                            builder: (context, state) {
+                              return BaseButton(
+                                label: "Xác nhận",
+                                textColor: Colors.white,
+                                isLoading: state.isLoading,
+                                backgroundColor: isEnabbleButton == false
+                                    ? const Color(0xffFDB3B5)
+                                    : AppColors.current.primaryColor,
+                                onPress: () async {
+                                  if (isEnabbleButton == false) return;
+                                  if (state.isLoading == true) return;
+                                  cubit.handleLogin(phone: phoneNumber);
+                                },
+                              );
                             },
                           ),
                         )

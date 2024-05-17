@@ -9,11 +9,15 @@ part of 'api_auth_response_data.dart';
 _$ApiAuthResponseDataImpl _$$ApiAuthResponseDataImplFromJson(
         Map<String, dynamic> json) =>
     _$ApiAuthResponseDataImpl(
-      accessToken: json['token'] as String?,
+      type: json['type'] as String?,
+      phone: json['phone'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$$ApiAuthResponseDataImplToJson(
         _$ApiAuthResponseDataImpl instance) =>
     <String, dynamic>{
-      'token': instance.accessToken,
+      'type': instance.type,
+      'phone': instance.phone,
+      'id': instance.id,
     };

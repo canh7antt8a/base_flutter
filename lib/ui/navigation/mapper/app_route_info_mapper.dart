@@ -13,6 +13,8 @@ class AppRouteInfoMapper extends BaseRouteInfoMapper {
       main: () => const MainRoute(),
       splash: () => const SplashRoute(),
       survey: () => const SurveyRoute(),
+      verifyOtp: (bool isLogin, String phoneNumber) =>
+          VerifyOtpRoute(isLogin: isLogin, phoneNumber: phoneNumber),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:base_flutter/data/api/client/auth_app_server_api_client.dart';
 import 'package:base_flutter/data/api/client/base/rest_api_client.dart';
 import 'package:base_flutter/data/api/client/none_auth_app_server_api_client.dart';
@@ -17,20 +19,20 @@ class AppApiService {
   final AuthAppServerApiClient _authAppServerApiClient;
   final RandomUserApiClient _randomUserApiClient;
 
-  Future<DataResponse<ApiAuthResponseData>?> login({
-    required String email,
-    required String password,
+  Future<ApiAuthResponseData?> login({
+    required String type,
+    required String phone,
   }) async {
-    return _noneAuthAppServerApiClient.request(
-        method: RestMethod.post,
-        // path: '/v1/auth/login',
-        path: '/api/login',
-        body: {
-          'email': email,
-          'password': password,
-        },
-        decoder: (json) =>
-            ApiAuthResponseData.fromJson(json as Map<String, dynamic>));
+    final data = await _noneAuthAppServerApiClient.requestNormal(
+      method: RestMethod.post,
+      path: '/api/mobile/account/login?hash=gF81ddGY34I',
+      body: {
+        'type': type,
+        'phone': phone,
+      },
+    );
+    if (data == null) return null;
+    return ApiAuthResponseData.fromJson(data);
   }
 
   Future<void> logout() async {
@@ -40,26 +42,26 @@ class AppApiService {
     );
   }
 
-  Future<DataResponse<ApiAuthResponseData>?> register({
-    required String username,
-    required String email,
-    required String password,
-    required int gender,
-  }) async {
-    return _noneAuthAppServerApiClient.request(
-      method: RestMethod.post,
-      path: '/v1/auth/register',
-      body: {
-        'username': username,
-        'gender': gender,
-        'email': email,
-        'password': password,
-        'password_confirmation': password,
-      },
-      decoder: (json) =>
-          ApiAuthResponseData.fromJson(json as Map<String, dynamic>),
-    );
-  }
+  // Future<DataResponse<ApiAuthResponseData>?> register({
+  //   required String username,
+  //   required String email,
+  //   required String password,
+  //   required int gender,
+  // }) async {
+  //   return _noneAuthAppServerApiClient.request(
+  //     method: RestMethod.post,
+  //     path: '/v1/auth/register',
+  //     body: {
+  //       'username': username,
+  //       'gender': gender,
+  //       'email': email,
+  //       'password': password,
+  //       'password_confirmation': password,
+  //     },
+  //     decoder: (json) =>
+  //         ApiAuthResponseData.fromJson(json as Map<String, dynamic>),
+  //   );
+  // }
 
   Future<void> forgotPassword(String email) async {
     await _noneAuthAppServerApiClient.request(

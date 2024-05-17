@@ -19,6 +19,7 @@ class BaseButton extends StatelessWidget {
   final Widget? iconRight;
   final MainAxisAlignment? mainAlignment;
   final bool? isEnable;
+  final bool? isLoading;
   const BaseButton(
       {super.key,
       this.onPress,
@@ -35,7 +36,8 @@ class BaseButton extends StatelessWidget {
       this.iconLeft,
       this.iconRight,
       this.isEnable,
-      this.mainAlignment});
+      this.mainAlignment,
+      this.isLoading = false});
 
   BaseButton.primaryEnable(
       {Key? key,
@@ -137,12 +139,21 @@ class BaseButton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             iconLeft ?? Container(),
-            Text(
-              label ?? "",
-              textAlign: TextAlign.center,
-              style: labelStyle ??
-                  AppTextStyles.s14w400Primary().copyWith(color: textColor),
-            ),
+            isLoading == true
+                ? SizedBox(
+                    width: 23.w,
+                    height: 23.w,
+                    child: const CircularProgressIndicator(
+                      color: Colors.white,
+                    ),
+                  )
+                : Text(
+                    label ?? "",
+                    textAlign: TextAlign.center,
+                    style: labelStyle ??
+                        AppTextStyles.s14w400Primary()
+                            .copyWith(color: textColor),
+                  ),
             iconRight ?? Container(),
           ],
         ),

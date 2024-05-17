@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:base_flutter/data/api/app_api_service.dart';
 import 'package:base_flutter/data/api/exceptions/app_exception.dart';
-import 'package:base_flutter/data/api/exceptions/app_exception_wrapper.dart';
 import 'package:base_flutter/ui/cubit/base_cubit.dart';
 import 'package:base_flutter/ui/screen/login/cubit/login_state.dart';
 import 'package:dio/dio.dart';
@@ -16,13 +13,14 @@ class LoginCubit extends BaseCubit<LoginState> {
     try {} on DioException catch (_) {}
   }
 
-  Future<void> handleLogin() async {
+  Future<void> handleLogin({required String phone}) async {
     await runBlocCatching(
         action: () async {
           emit(state.copyWith(isLoading: true));
-          final data = await apiServices.login(
-              email: "eve.holt@reqres.in", password: "cityslicka");
-          print(data?.token);
+          final data = await apiServices.login(type: "phone", phone: phone);
+          if (data != null) {
+            print(data.phone);
+          }
           emit(state.copyWith(isLoading: false));
         },
         handleLoading: false,

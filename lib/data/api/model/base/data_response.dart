@@ -9,7 +9,6 @@ part 'data_response.g.dart';
 @Freezed(genericArgumentFactories: true)
 class DataResponse<T> with _$DataResponse<T> {
   const factory DataResponse({
-    @JsonKey(name: "token") String? token,
     @JsonKey(name: 'data') T? data,
     @JsonKey(name: 'meta') Meta? meta,
   }) = _DataResponse;

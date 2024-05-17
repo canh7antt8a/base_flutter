@@ -70,6 +70,44 @@ class RestApiClient {
     }
   }
 
+  Future<Map<String, dynamic>?> requestNormal({
+    required RestMethod method,
+    required String path,
+    Map<String, dynamic>? queryParameters,
+    Object? body,
+    ErrorResponseMapperType? errorResponseMapperType,
+    Options? options,
+  }) async {
+    try {
+      final response = await _requestByMethod(
+        method: method,
+        path: path.startsWith(dio.options.baseUrl)
+            ? path.substring(dio.options.baseUrl.length)
+            : path,
+        queryParameters: queryParameters,
+        body: body,
+        options: Options(
+          headers: options?.headers,
+          contentType: options?.contentType,
+          responseType: options?.responseType,
+          sendTimeout: options?.sendTimeout,
+          receiveTimeout: options?.receiveTimeout,
+        ),
+      );
+
+      if (response.data == null) {
+        return null;
+      }
+      return response.data;
+    } catch (error) {
+      throw DioExceptionMapper(
+        BaseErrorResponseMapper.fromType(
+          errorResponseMapperType ?? this.errorResponseMapperType,
+        ),
+      ).map(error);
+    }
+  }
+
   Future<Response<dynamic>> _requestByMethod({
     required RestMethod method,
     required String path,
