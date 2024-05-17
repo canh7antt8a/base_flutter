@@ -28,6 +28,7 @@ class _PointsPageState extends BasePageState<PointsPage, PointsCubit> {
   @override
   Widget buildPage(BuildContext context) {
     return BaseScreen(
+        title: "Tích điểm",
         isSafeAreaTop: false,
         child: BlocConsumer<PointsCubit, PointsState>(
             listener: (context, state) {},

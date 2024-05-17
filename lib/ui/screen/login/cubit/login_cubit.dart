@@ -1,6 +1,7 @@
 import 'package:base_flutter/data/api/app_api_service.dart';
 import 'package:base_flutter/data/api/exceptions/app_exception.dart';
 import 'package:base_flutter/ui/cubit/base_cubit.dart';
+import 'package:base_flutter/ui/navigation/app_route_info.dart';
 import 'package:base_flutter/ui/screen/login/cubit/login_state.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
@@ -18,15 +19,17 @@ class LoginCubit extends BaseCubit<LoginState> {
         action: () async {
           emit(state.copyWith(isLoading: true));
           final data = await apiServices.login(type: "phone", phone: phone);
-          if (data != null) {
-            print(data.phone);
+          if (data != null && data.phone != "") {
+            navigator.push(AppRouteInfo.verifyOtp(true, data.phone ?? ""));
           }
-          emit(state.copyWith(isLoading: false));
         },
         handleLoading: false,
         doOnSubscribe: () async {},
         doOnError: (AppException e) async {
           print("do onError: $e");
+        },
+        doOnSuccessOrError: () async {
+          emit(state.copyWith(isLoading: false));
         });
   }
 }

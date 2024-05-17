@@ -5,10 +5,12 @@ import 'package:base_flutter/ui/resource/dimens/dimens.dart';
 import 'package:base_flutter/ui/resource/styles/app_colors.dart';
 import 'package:base_flutter/ui/resource/styles/app_text_styles.dart';
 import 'package:base_flutter/ui/screen/verify_otp/cubit/verify_otp_cubit.dart';
+import 'package:base_flutter/ui/screen/verify_otp/cubit/verify_otp_state.dart';
 import 'package:base_flutter/ui/share/button/base_button.dart';
 import 'package:base_flutter/ui/share/scaffold/base_page_state.dart';
 import 'package:base_flutter/ui/share/scaffold/base_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -27,38 +29,6 @@ class _VerifyOtpPageState extends BasePageState<VerifyOtpPage, VerifyOtpCubit> {
   bool isEnabbleButton = false;
   String messageError = "";
   final box1Controller = TextEditingController(text: "");
-  late Timer _timer;
-  int _start = 20;
-  @override
-  void initState() {
-    startTimer();
-    super.initState();
-  }
-
-  void startTimer() {
-    const oneSec = Duration(seconds: 1);
-    _timer = Timer.periodic(
-      oneSec,
-      (Timer timer) {
-        if (_start == 0) {
-          setState(() {
-            timer.cancel();
-            _timer.cancel();
-          });
-        } else {
-          setState(() {
-            _start--;
-          });
-        }
-      },
-    );
-  }
-
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-  }
 
   @override
   Widget buildPage(BuildContext context) {
@@ -118,13 +88,8 @@ class _VerifyOtpPageState extends BasePageState<VerifyOtpPage, VerifyOtpCubit> {
                       animationDuration: const Duration(milliseconds: 300),
                       controller: box1Controller,
                       onCompleted: (v) async {
-                        if (v != "111111") {
-                          setState(() {
-                            messageError = "Mã xác thực không đúng";
-                          });
-                        } else {
-                          _timer.cancel();
-                        }
+                        cubit.handleVerifySignin(
+                            code: v, phone: widget.phoneNumber);
                       },
                       onChanged: (value) {
                         if (value.length < 6) {
@@ -165,54 +130,27 @@ class _VerifyOtpPageState extends BasePageState<VerifyOtpPage, VerifyOtpCubit> {
                       children: [
                         Container(
                           margin: EdgeInsets.only(top: Dimens.d10.h),
-                          child: BaseButton(
-                            label: "Tiếp tục",
-                            textColor: Colors.white,
-                            backgroundColor: isEnabbleButton == false
-                                ? const Color(0xffFDB3B5)
-                                : AppColors.current.primaryColor,
-                            onPress: () {
-                              if (isEnabbleButton == false) {
-                              } else {
-                                if (box1Controller.value.text != "111111") {
-                                  setState(() {
-                                    messageError = "Mã xác thực không đúng";
-                                  });
-                                } else {
-                                  _timer.cancel();
-                                }
-                              }
+                          child: BlocBuilder<VerifyOtpCubit, VerifyOtpState>(
+                            builder: (context, state) {
+                              return BaseButton(
+                                label: "Tiếp tục",
+                                textColor: Colors.white,
+                                isLoading: state.isLoading,
+                                backgroundColor: isEnabbleButton == false
+                                    ? const Color(0xffFDB3B5)
+                                    : AppColors.current.primaryColor,
+                                onPress: () {
+                                  if (isEnabbleButton == false) {
+                                  } else {
+                                    cubit.handleVerifySignin(
+                                        code: box1Controller.value.text,
+                                        phone: widget.phoneNumber);
+                                  }
+                                },
+                              );
                             },
                           ),
                         ),
-                        _start != 0
-                            ? Container(
-                                margin: EdgeInsets.only(
-                                    left: 0.w, top: Dimens.d12.h),
-                                child: Text(
-                                    "Chưa nhận được mã? Gửi lại trong vòng ${_start}s",
-                                    style: AppTextStyles
-                                        .s12w400PrimaryTextColor()),
-                              )
-                            : GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    _start = 20;
-                                    Future.delayed(
-                                        const Duration(milliseconds: 1000), () {
-                                      startTimer();
-                                    });
-                                  });
-                                },
-                                child: Container(
-                                  margin: EdgeInsets.only(
-                                      left: 0.w, top: Dimens.d12.h),
-                                  alignment: Alignment.center,
-                                  child: Text("Gửi lại",
-                                      style:
-                                          AppTextStyles.s12w400PrimaryColor()),
-                                ),
-                              )
                       ],
                     )))
           ],

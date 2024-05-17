@@ -4,7 +4,7 @@ enum BottomTab {
   service(icon: AppPath.bottomService, activeIcon: AppPath.bottomServiceActive),
   myPackage(
       icon: AppPath.bottomMyPackage, activeIcon: AppPath.bottomMyPackageActive),
-  home(icon: AppPath.bottomHome, activeIcon: AppPath.bottomHome),
+  home(icon: AppPath.bottomService, activeIcon: AppPath.bottomService),
   points(icon: AppPath.bottomPoints, activeIcon: AppPath.bottomPointsActive),
   accountBalance(
       icon: AppPath.bottomSupport, activeIcon: AppPath.bottomSupportActive),
@@ -22,7 +22,7 @@ enum BottomTab {
       case BottomTab.service:
         return "Dịch vụ";
       case BottomTab.myPackage:
-        return "Gói của tôi";
+        return "Gói cước";
       case BottomTab.home:
         return "Trang chủ";
       case BottomTab.points:

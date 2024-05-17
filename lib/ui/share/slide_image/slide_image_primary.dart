@@ -24,11 +24,7 @@ class _SlideImagePrimaryState extends State<SlideImagePrimary> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // getIt
-        //     .get<AppNavigator>()
-        //     .push(AppRouteInfo.listGalleryScreen(widget.listMedia, true));
-      },
+      onTap: () {},
       child: Container(
         padding: EdgeInsets.zero,
         child: Stack(

@@ -7,7 +7,6 @@ class AppRouteInfo with _$AppRouteInfo {
   const factory AppRouteInfo.splash() = _Splash;
   const factory AppRouteInfo.login() = _Login;
   const factory AppRouteInfo.main() = _Main;
-  const factory AppRouteInfo.survey() = _Survey;
   const factory AppRouteInfo.verifyOtp(bool isLogin, String phoneNumber) =
       _VerifyOtp;
 }

@@ -1,12 +1,42 @@
+import 'dart:developer';
+
+import 'package:base_flutter/data/api/app_api_service.dart';
+import 'package:base_flutter/data/api/exceptions/app_exception.dart';
 import 'package:base_flutter/ui/cubit/base_cubit.dart';
+import 'package:base_flutter/ui/navigation/app_route_info.dart';
 import 'package:base_flutter/ui/screen/verify_otp/cubit/verify_otp_state.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable()
 class VerifyOtpCubit extends BaseCubit<VerifyOtpState> {
-  VerifyOtpCubit() : super(const VerifyOtpState());
-  Future<void> initData() async {
-    try {} on DioException catch (_) {}
+  VerifyOtpCubit({required this.apiServices}) : super(const VerifyOtpState());
+  AppApiService apiServices;
+
+  Future<void> handleVerifySignin(
+      {required String phone, required String code}) async {
+    try {
+      await runBlocCatching(
+          action: () async {
+            emit(state.copyWith(isLoading: true));
+            final data = await apiServices.verifyOtpLogin(
+                type: "phone", phone: phone, verifyCode: code);
+            if (data != null) {
+              print(data.phone);
+              print(data.verifyCode);
+              print(data.type);
+              print(data.id);
+              navigator.replace(const AppRouteInfo.main());
+            }
+          },
+          handleLoading: false,
+          doOnSubscribe: () async {},
+          doOnError: (AppException e) async {
+            print("do onError: $e");
+          },
+          doOnSuccessOrError: () async {
+            emit(state.copyWith(isLoading: false));
+          });
+    } on DioException catch (_) {}
   }
 }

@@ -29,6 +29,7 @@ class _HomePageState extends BasePageState<HomePage, HomeCubit> {
   @override
   Widget buildPage(BuildContext context) {
     return BaseScreen(
+        title: "Trang Chủ",
         isSafeAreaTop: false,
         child: BlocConsumer<HomeCubit, HomeState>(
             listener: (context, state) {},
@@ -36,14 +37,15 @@ class _HomePageState extends BasePageState<HomePage, HomeCubit> {
               return Container(
                 padding: EdgeInsets.symmetric(horizontal: Dimens.d16.w),
                 child: Center(
-                  child: BaseButton(
-                      label: "Đăng Nhập",
-                      backgroundColor: AppColors.current.primaryColor,
-                      textColor: Colors.white,
-                      onPress: () {
-                        navigator.replace(const AppRouteInfo.login());
-                      }),
-                ),
+
+                    // child: BaseButton(
+                    //     label: "Đăng Nhập",
+                    //     backgroundColor: AppColors.current.primaryColor,
+                    //     textColor: Colors.white,
+                    //     onPress: () {
+                    //       navigator.replace(const AppRouteInfo.login());
+                    //     }),
+                    ),
               );
             }));
   }

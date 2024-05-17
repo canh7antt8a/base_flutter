@@ -28,6 +28,7 @@ class _ServicePageState extends BasePageState<ServicePage, ServiceCubit> {
   @override
   Widget buildPage(BuildContext context) {
     return BaseScreen(
+        title: "Dịch vụ",
         child: BlocConsumer<ServiceCubit, ServiceState>(
             listener: (context, state) {},
             builder: (context, state) {

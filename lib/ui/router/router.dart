@@ -52,7 +52,6 @@ class AppRouter extends $AppRouter {
           ),
         ]),
         AutoRoute(page: VerifyOtpRoute.page),
-        AutoRoute(page: SurveyRoute.page),
       ];
 }
 
