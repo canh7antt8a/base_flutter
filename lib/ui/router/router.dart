@@ -23,10 +23,10 @@ class AppRouter extends $AppRouter {
             ],
           ),
           AutoRoute(
-            page: SearchTab.page,
+            page: SupportTab.page,
             maintainState: true,
             children: [
-              AutoRoute(page: SearchRoute.page, initial: true),
+              AutoRoute(page: SupportRoute.page, initial: true),
             ],
           ),
           AutoRoute(
@@ -60,9 +60,9 @@ class HomeTabPage extends AutoRouter {
   const HomeTabPage({super.key});
 }
 
-@RoutePage(name: 'SearchTab')
-class SearchTabPage extends AutoRouter {
-  const SearchTabPage({super.key});
+@RoutePage(name: 'SupportTab')
+class SupportTabPage extends AutoRouter {
+  const SupportTabPage({super.key});
 }
 
 @RoutePage(name: 'ServiceTab')

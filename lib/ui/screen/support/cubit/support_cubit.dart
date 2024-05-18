@@ -2,16 +2,15 @@
 
 import 'dart:async';
 import 'package:base_flutter/ui/cubit/base_cubit.dart';
-import 'package:base_flutter/ui/screen/my_package/cubit/my_package_state.dart';
+import 'package:base_flutter/ui/screen/support/cubit/support_state.dart';
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable()
-class MyPackageCubit extends BaseCubit<MyPackageState> {
-  MyPackageCubit() : super(const MyPackageState());
+class SupportCubit extends BaseCubit<SupportState> {
+  SupportCubit() : super(const SupportState());
 
   Future<void> initData() async {
-    print("my package cubit");
     try {} on DioException catch (_) {}
   }
 }

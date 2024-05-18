@@ -1,5 +1,5 @@
 import 'package:base_flutter/ui/config/app_path.dart';
-import 'package:base_flutter/ui/resource/dimens/dimens.dart';
+import 'package:base_flutter/resource/dimens/dimens.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 

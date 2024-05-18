@@ -1,7 +1,5 @@
-import 'dart:async';
-
 import 'package:auto_route/auto_route.dart';
-import 'package:base_flutter/ui/resource/dimens/dimens.dart';
+import 'package:base_flutter/resource/dimens/dimens.dart';
 import 'package:base_flutter/ui/resource/styles/app_colors.dart';
 import 'package:base_flutter/ui/resource/styles/app_text_styles.dart';
 import 'package:base_flutter/ui/screen/verify_otp/cubit/verify_otp_cubit.dart';

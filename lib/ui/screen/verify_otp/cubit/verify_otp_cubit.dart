@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:base_flutter/data/api/app_api_service.dart';
 import 'package:base_flutter/data/api/exceptions/app_exception.dart';
+import 'package:base_flutter/data/preference/app_preferences.dart';
 import 'package:base_flutter/ui/cubit/base_cubit.dart';
 import 'package:base_flutter/ui/navigation/app_route_info.dart';
 import 'package:base_flutter/ui/screen/verify_otp/cubit/verify_otp_state.dart';
@@ -10,8 +9,10 @@ import 'package:injectable/injectable.dart';
 
 @Injectable()
 class VerifyOtpCubit extends BaseCubit<VerifyOtpState> {
-  VerifyOtpCubit({required this.apiServices}) : super(const VerifyOtpState());
+  VerifyOtpCubit({required this.apiServices, required this.appPrefrence})
+      : super(const VerifyOtpState());
   AppApiService apiServices;
+  AppPreferences appPrefrence;
 
   Future<void> handleVerifySignin(
       {required String phone, required String code}) async {
@@ -22,10 +23,7 @@ class VerifyOtpCubit extends BaseCubit<VerifyOtpState> {
             final data = await apiServices.verifyOtpLogin(
                 type: "phone", phone: phone, verifyCode: code);
             if (data != null) {
-              print(data.phone);
-              print(data.verifyCode);
-              print(data.type);
-              print(data.id);
+              await appPrefrence.saveAccessToken(data.id);
               navigator.replace(const AppRouteInfo.main());
             }
           },

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:base_flutter/ui/resource/dimens/app_dimen.dart';
-import 'package:base_flutter/ui/resource/dimens/dimens.dart';
+import 'package:base_flutter/resource/dimens/app_dimen.dart';
+import 'package:base_flutter/resource/dimens/dimens.dart';
 import 'package:base_flutter/ui/screen/service/cubit/service_cubit.dart';
 import 'package:base_flutter/ui/screen/service/cubit/service_state.dart';
 import 'package:base_flutter/ui/share/loading/common_loading.dart';
@@ -28,7 +28,6 @@ class _ServicePageState extends BasePageState<ServicePage, ServiceCubit> {
   @override
   Widget buildPage(BuildContext context) {
     return BaseScreen(
-        title: "Dịch vụ",
         child: BlocConsumer<ServiceCubit, ServiceState>(
             listener: (context, state) {},
             builder: (context, state) {

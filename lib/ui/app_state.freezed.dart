@@ -17,6 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AppState {
   bool get isLoading => throw _privateConstructorUsedError;
+  LanguageCode get languageCode => throw _privateConstructorUsedError;
+  bool get isDarkMode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppStateCopyWith<AppState> get copyWith =>
@@ -28,7 +30,7 @@ abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) =
       _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call({bool isLoading});
+  $Res call({bool isLoading, LanguageCode languageCode, bool isDarkMode});
 }
 
 /// @nodoc
@@ -45,11 +47,21 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? languageCode = null,
+    Object? isDarkMode = null,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      languageCode: null == languageCode
+          ? _value.languageCode
+          : languageCode // ignore: cast_nullable_to_non_nullable
+              as LanguageCode,
+      isDarkMode: null == isDarkMode
+          ? _value.isDarkMode
+          : isDarkMode // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -63,7 +75,7 @@ abstract class _$$AppStateImplCopyWith<$Res>
       __$$AppStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading});
+  $Res call({bool isLoading, LanguageCode languageCode, bool isDarkMode});
 }
 
 /// @nodoc
@@ -78,11 +90,21 @@ class __$$AppStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? languageCode = null,
+    Object? isDarkMode = null,
   }) {
     return _then(_$AppStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      languageCode: null == languageCode
+          ? _value.languageCode
+          : languageCode // ignore: cast_nullable_to_non_nullable
+              as LanguageCode,
+      isDarkMode: null == isDarkMode
+          ? _value.isDarkMode
+          : isDarkMode // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -91,15 +113,24 @@ class __$$AppStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppStateImpl with DiagnosticableTreeMixin implements _AppState {
-  const _$AppStateImpl({this.isLoading = false});
+  const _$AppStateImpl(
+      {this.isLoading = false,
+      this.languageCode = LanguageCode.vn,
+      this.isDarkMode = false});
 
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  @JsonKey()
+  final LanguageCode languageCode;
+  @override
+  @JsonKey()
+  final bool isDarkMode;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AppState(isLoading: $isLoading)';
+    return 'AppState(isLoading: $isLoading, languageCode: $languageCode, isDarkMode: $isDarkMode)';
   }
 
   @override
@@ -107,7 +138,9 @@ class _$AppStateImpl with DiagnosticableTreeMixin implements _AppState {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'AppState'))
-      ..add(DiagnosticsProperty('isLoading', isLoading));
+      ..add(DiagnosticsProperty('isLoading', isLoading))
+      ..add(DiagnosticsProperty('languageCode', languageCode))
+      ..add(DiagnosticsProperty('isDarkMode', isDarkMode));
   }
 
   @override
@@ -116,11 +149,16 @@ class _$AppStateImpl with DiagnosticableTreeMixin implements _AppState {
         (other.runtimeType == runtimeType &&
             other is _$AppStateImpl &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            (identical(other.languageCode, languageCode) ||
+                other.languageCode == languageCode) &&
+            (identical(other.isDarkMode, isDarkMode) ||
+                other.isDarkMode == isDarkMode));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading);
+  int get hashCode =>
+      Object.hash(runtimeType, isLoading, languageCode, isDarkMode);
 
   @JsonKey(ignore: true)
   @override
@@ -130,10 +168,17 @@ class _$AppStateImpl with DiagnosticableTreeMixin implements _AppState {
 }
 
 abstract class _AppState implements AppState {
-  const factory _AppState({final bool isLoading}) = _$AppStateImpl;
+  const factory _AppState(
+      {final bool isLoading,
+      final LanguageCode languageCode,
+      final bool isDarkMode}) = _$AppStateImpl;
 
   @override
   bool get isLoading;
+  @override
+  LanguageCode get languageCode;
+  @override
+  bool get isDarkMode;
   @override
   @JsonKey(ignore: true)
   _$$AppStateImplCopyWith<_$AppStateImpl> get copyWith =>

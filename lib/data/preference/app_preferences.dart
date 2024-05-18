@@ -87,6 +87,16 @@ class AppPreferences with LogMixin {
     );
   }
 
+  Future<bool> saveLanguageCode(String languageCode) {
+    return _sharedPreference.setString(
+        SharedPreferenceKeys.languageCode, languageCode);
+  }
+
+  Future<bool> saveIsDarkMode(bool isDarkMode) {
+    return _sharedPreference.setBool(
+        SharedPreferenceKeys.isDarkMode, isDarkMode);
+  }
+
   Future<void> clearCurrentUserData() async {
     await Future.wait(
       [

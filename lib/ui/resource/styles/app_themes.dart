@@ -3,19 +3,17 @@ import 'package:flutter/material.dart';
 
 /// define custom themes here
 final lightTheme = ThemeData(
-    brightness: Brightness.light,
-    splashColor: Colors.transparent,
-    fontFamily: "Poppins")
-  ..addAppColor(
+  brightness: Brightness.light,
+  splashColor: Colors.transparent,
+)..addAppColor(
     AppThemeType.light,
     AppColors.defaultAppColor,
   );
 
 final darkTheme = ThemeData(
-    brightness: Brightness.dark,
-    splashColor: Colors.transparent,
-    fontFamily: "Poppins")
-  ..addAppColor(
+  brightness: Brightness.dark,
+  splashColor: Colors.transparent,
+)..addAppColor(
     AppThemeType.dark,
     AppColors.darkThemeColor,
   );
@@ -37,5 +35,5 @@ extension ThemeDataExtensions on ThemeData {
 
 class AppThemeSetting {
   const AppThemeSetting._();
-  static AppThemeType currentAppThemeType = AppThemeType.light;
+  static late AppThemeType currentAppThemeType = AppThemeType.light;
 }

@@ -1,5 +1,5 @@
-import 'package:base_flutter/ui/resource/dimens/app_dimen.dart';
-import 'package:base_flutter/ui/resource/dimens/dimens.dart';
+import 'package:base_flutter/resource/dimens/app_dimen.dart';
+import 'package:base_flutter/resource/dimens/dimens.dart';
 import 'package:base_flutter/ui/share/button/base_button.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';

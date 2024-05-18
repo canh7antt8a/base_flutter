@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:base_flutter/data/api/exceptions/server_error.dart';
 import 'package:base_flutter/data/api/mapper/base/base_error_response_mapper.dart';
 import 'package:injectable/injectable.dart';

@@ -113,7 +113,7 @@ class BaseButton extends StatelessWidget {
         alignment: Alignment.center,
         padding: padding ?? EdgeInsets.symmetric(horizontal: 16.w),
         decoration: BoxDecoration(
-            color: backgroundColor ?? Theme.of(context).primaryColor,
+            color: backgroundColor ?? AppColors.current.primaryColor,
             border: Border.all(
                 width: borderWidth ?? 0,
                 color: borderColor ?? Colors.transparent),

@@ -1,8 +1,6 @@
 import 'package:base_flutter/ui/di/di.dart' as di;
 import 'package:base_flutter/ui/navigation/app_navigator.dart';
-import 'package:base_flutter/ui/resource/dimens/app_dimen.dart';
 import 'package:base_flutter/ui/resource/styles/app_colors.dart';
-import 'package:base_flutter/ui/resource/styles/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class BaseScreen extends StatelessWidget {
@@ -37,23 +35,21 @@ class BaseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AppDimen.of(context);
-    AppColors.of(context);
     return Scaffold(
       key: key,
       resizeToAvoidBottomInset: true,
-      backgroundColor: AppColors.defaultBackGroundColor,
-      appBar: title != null
-          ? AppBar(
-              backgroundColor:
-                  backgroundColor ?? AppColors.defaultBackGroundColor,
-              actions: trailing,
-              leading: leading,
-              automaticallyImplyLeading: leading != null ? true : false,
-              elevation: elevation,
-              centerTitle: centerTitle,
-              title: Text(title!, style: AppTextStyles.s16w600Primary()))
-          : null,
+      backgroundColor: AppColors.current.backGroundColor,
+      // appBar: title != null
+      //     ? AppBar(
+      //         backgroundColor:
+      //             backgroundColor ?? AppColors.current.primaryColor,
+      //         actions: trailing,
+      //         leading: leading,
+      //         automaticallyImplyLeading: leading != null ? true : false,
+      //         elevation: elevation,
+      //         centerTitle: centerTitle,
+      //         title: Text(title!, style: AppTextStyles.s16w600Primary()))
+      //     : null,
       floatingActionButton: floatingActionButton,
       body: SafeArea(
         top: isSafeAreaTop ?? true,

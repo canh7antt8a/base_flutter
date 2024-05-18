@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:base_flutter/ui/navigation/app_route_info.dart';
-import 'package:base_flutter/ui/resource/dimens/dimens.dart';
+import 'package:base_flutter/resource/dimens/dimens.dart';
 import 'package:base_flutter/ui/resource/styles/app_colors.dart';
 import 'package:base_flutter/ui/resource/styles/app_text_styles.dart';
 import 'package:base_flutter/ui/screen/login/cubit/login_cubit.dart';
@@ -54,8 +53,9 @@ class _LoginPageState extends BasePageState<LoginPage, LoginCubit> {
                         alignment: Alignment.centerLeft,
                         margin: EdgeInsets.symmetric(vertical: Dimens.d16.h),
                         child: Text("Số điện thoại",
-                            style: AppTextStyles.sectionTitle()
-                                .copyWith(fontWeight: FontWeight.w500))),
+                            style: AppTextStyles.sectionTitle().copyWith(
+                                fontWeight: FontWeight.w500,
+                                color: AppColors.current.primaryTextColor))),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -68,7 +68,7 @@ class _LoginPageState extends BasePageState<LoginPage, LoginCubit> {
                               Text(
                                 "+84",
                                 style: AppTextStyles.sectionTitle().copyWith(
-                                    color: Colors.black,
+                                    color: AppColors.current.primaryTextColor,
                                     fontWeight: FontWeight.w500),
                               ),
                               Icon(
@@ -95,7 +95,7 @@ class _LoginPageState extends BasePageState<LoginPage, LoginCubit> {
                                       color: AppColors.current.primaryColor,
                                       fontWeight: FontWeight.w500,
                                       fontSize: 22.sp),
-                              fillColor: AppColors.defaultBackGroundColor,
+                              fillColor: AppColors.current.backGroundColor,
                               contentPaddingVertical: 0.h,
                               onChanged: (text) {
                                 if (text.length > 10) {
@@ -145,8 +145,8 @@ class _LoginPageState extends BasePageState<LoginPage, LoginCubit> {
                           text: TextSpan(
                             text:
                                 'Bằng việc đăng ký và đăng nhập vào DataOn, bạn đồng ý với ',
-                            style: AppTextStyles.s12w400PrimaryColor()
-                                .copyWith(color: Colors.black),
+                            style: AppTextStyles.s12w400PrimaryColor().copyWith(
+                                color: AppColors.current.primaryTextColor),
                             children: <TextSpan>[
                               TextSpan(
                                   text: "Điều khoản dịch vụ",
@@ -158,7 +158,9 @@ class _LoginPageState extends BasePageState<LoginPage, LoginCubit> {
                               TextSpan(
                                   text: " và ",
                                   style: AppTextStyles.s12w400PrimaryColor()
-                                      .copyWith(color: Colors.black)),
+                                      .copyWith(
+                                          color: AppColors
+                                              .current.primaryTextColor)),
                               TextSpan(
                                   text: "Chính sách riêng tư",
                                   style: AppTextStyles.s12w400PrimaryColor()
@@ -169,7 +171,9 @@ class _LoginPageState extends BasePageState<LoginPage, LoginCubit> {
                               TextSpan(
                                   text: " của chúng tôi.",
                                   style: AppTextStyles.s12w400PrimaryColor()
-                                      .copyWith(color: Colors.black)),
+                                      .copyWith(
+                                          color: AppColors
+                                              .current.primaryTextColor)),
                             ],
                           ),
                         ),

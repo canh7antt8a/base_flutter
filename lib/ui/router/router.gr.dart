@@ -15,9 +15,9 @@ import 'package:base_flutter/ui/screen/login/login_page.dart' as _i3;
 import 'package:base_flutter/ui/screen/main/main_page.dart' as _i4;
 import 'package:base_flutter/ui/screen/my_package/my_package_page.dart' as _i5;
 import 'package:base_flutter/ui/screen/points/points_page.dart' as _i6;
-import 'package:base_flutter/ui/screen/search/search_page.dart' as _i7;
-import 'package:base_flutter/ui/screen/service/service_page.dart' as _i8;
-import 'package:base_flutter/ui/screen/splash/splash_page.dart' as _i9;
+import 'package:base_flutter/ui/screen/service/service_page.dart' as _i7;
+import 'package:base_flutter/ui/screen/splash/splash_page.dart' as _i8;
+import 'package:base_flutter/ui/screen/support/support_page.dart' as _i9;
 import 'package:base_flutter/ui/screen/verify_otp/verify_otp_page.dart' as _i10;
 import 'package:flutter/material.dart' as _i12;
 
@@ -74,18 +74,6 @@ abstract class $AppRouter extends _i11.RootStackRouter {
         child: const _i2.PointsTabPage(),
       );
     },
-    SearchRoute.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i7.SearchPage(),
-      );
-    },
-    SearchTab.name: (routeData) {
-      return _i11.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i2.SearchTabPage(),
-      );
-    },
     SelectAppTab.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -101,7 +89,7 @@ abstract class $AppRouter extends _i11.RootStackRouter {
     ServiceRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i8.ServicePage(),
+        child: const _i7.ServicePage(),
       );
     },
     ServiceTab.name: (routeData) {
@@ -113,7 +101,19 @@ abstract class $AppRouter extends _i11.RootStackRouter {
     SplashRoute.name: (routeData) {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i9.SplashPage(),
+        child: const _i8.SplashPage(),
+      );
+    },
+    SupportRoute.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i9.SupportPage(),
+      );
+    },
+    SupportTab.name: (routeData) {
+      return _i11.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i2.SupportTabPage(),
       );
     },
     VerifyOtpRoute.name: (routeData) {
@@ -243,34 +243,6 @@ class PointsTab extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.SearchPage]
-class SearchRoute extends _i11.PageRouteInfo<void> {
-  const SearchRoute({List<_i11.PageRouteInfo>? children})
-      : super(
-          SearchRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'SearchRoute';
-
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i2.SearchTabPage]
-class SearchTab extends _i11.PageRouteInfo<void> {
-  const SearchTab({List<_i11.PageRouteInfo>? children})
-      : super(
-          SearchTab.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'SearchTab';
-
-  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
-}
-
-/// generated route for
 /// [_i2.SelectAppTabPage]
 class SelectAppTab extends _i11.PageRouteInfo<void> {
   const SelectAppTab({List<_i11.PageRouteInfo>? children})
@@ -299,7 +271,7 @@ class SelectTimerTab extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.ServicePage]
+/// [_i7.ServicePage]
 class ServiceRoute extends _i11.PageRouteInfo<void> {
   const ServiceRoute({List<_i11.PageRouteInfo>? children})
       : super(
@@ -327,7 +299,7 @@ class ServiceTab extends _i11.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.SplashPage]
+/// [_i8.SplashPage]
 class SplashRoute extends _i11.PageRouteInfo<void> {
   const SplashRoute({List<_i11.PageRouteInfo>? children})
       : super(
@@ -336,6 +308,34 @@ class SplashRoute extends _i11.PageRouteInfo<void> {
         );
 
   static const String name = 'SplashRoute';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i9.SupportPage]
+class SupportRoute extends _i11.PageRouteInfo<void> {
+  const SupportRoute({List<_i11.PageRouteInfo>? children})
+      : super(
+          SupportRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SupportRoute';
+
+  static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.SupportTabPage]
+class SupportTab extends _i11.PageRouteInfo<void> {
+  const SupportTab({List<_i11.PageRouteInfo>? children})
+      : super(
+          SupportTab.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SupportTab';
 
   static const _i11.PageInfo<void> page = _i11.PageInfo<void>(name);
 }

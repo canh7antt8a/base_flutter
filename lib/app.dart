@@ -1,3 +1,6 @@
+import 'package:base_flutter/foundation/constant/ui/locale_constant.dart';
+import 'package:base_flutter/resource/generated/l10n.dart';
+import 'package:base_flutter/ui/resource/styles/app_colors.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:base_flutter/foundation/constant/ui/device_constants.dart';
 import 'package:base_flutter/foundation/constant/ui/ui_constants.dart';
@@ -13,6 +16,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 final _appRouter = GetIt.instance.get<AppRouter>();
 final _botToastBuilder = BotToastInit();
@@ -41,6 +45,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AppColors.of(context);
+
     return ScreenUtilInit(
         designSize: const Size(DeviceConstants.designDeviceWidth,
             DeviceConstants.designDeviceHeight),
@@ -51,13 +57,18 @@ class MyApp extends StatelessWidget {
                   // ignore: todo
                   // TODO: implement listener
                 },
+                buildWhen: (previous, current) =>
+                    previous.isDarkMode != current.isDarkMode ||
+                    previous.languageCode != current.languageCode,
                 builder: (context, state) {
+                  print(state.isDarkMode);
                   if (state.isLoading == true) {
                     return Container();
                   }
                   return MaterialApp.router(
                     builder: (context, child) {
                       final MediaQueryData data = MediaQuery.of(context);
+
                       return _botToastBuilder(
                           context,
                           MediaQuery(
@@ -65,20 +76,28 @@ class MyApp extends StatelessWidget {
                                 textScaler: const TextScaler.linear(1.0)),
                             child: child ?? const SizedBox.shrink(),
                           ));
-                      // return MediaQuery(
-                      //   data: data.copyWith(
-                      //       textScaler: const TextScaler.linear(1.0)),
-                      //   child: child ?? const SizedBox.shrink(),
-                      // );
                     },
                     routerDelegate: _appRouter.delegate(
                       navigatorObservers: () => [AppNavigatorObserver()],
                     ),
-                    locale: const Locale('vi'),
+                    localizationsDelegates: const [
+                      S.delegate,
+                      GlobalMaterialLocalizations.delegate,
+                      GlobalWidgetsLocalizations.delegate,
+                      GlobalCupertinoLocalizations.delegate,
+                    ],
+                    localeResolutionCallback:
+                        (Locale? locale, Iterable<Locale> supportedLocales) =>
+                            supportedLocales.contains(locale)
+                                ? locale
+                                : const Locale(LocaleConstants.defaultLocale),
+                    locale: Locale(state.languageCode.localeCode),
+                    supportedLocales: S.delegate.supportedLocales,
                     routeInformationParser: _appRouter.defaultRouteParser(),
                     title: UiConstants.materialAppTitle,
                     color: UiConstants.taskMenuMaterialAppColor,
-                    themeMode: ThemeMode.light,
+                    themeMode:
+                        state.isDarkMode ? ThemeMode.dark : ThemeMode.light,
                     theme: lightTheme,
                     darkTheme: darkTheme,
                     debugShowCheckedModeBanner: false,

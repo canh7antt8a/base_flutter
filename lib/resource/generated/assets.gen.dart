@@ -11,12 +11,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/services.dart';
 
-class $AssetsDataGen {
-  const $AssetsDataGen();
-
-  $AssetsDataHomeGen get home => const $AssetsDataHomeGen();
-}
-
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
@@ -25,23 +19,6 @@ class $AssetsImagesGen {
   $AssetsImagesLoadingGen get loading => const $AssetsImagesLoadingGen();
   $AssetsImagesLoginGen get login => const $AssetsImagesLoginGen();
   $AssetsImagesSplashGen get splash => const $AssetsImagesSplashGen();
-}
-
-class $AssetsDataHomeGen {
-  const $AssetsDataHomeGen();
-
-  /// File path: assets/data/home/available_app_data.json
-  String get availableAppData => 'assets/data/home/available_app_data.json';
-
-  /// File path: assets/data/home/list_pack_data.json
-  String get listPackData => 'assets/data/home/list_pack_data.json';
-
-  /// File path: assets/data/home/notifications_data.json
-  String get notificationsData => 'assets/data/home/notifications_data.json';
-
-  /// List of all assets
-  List<String> get values =>
-      [availableAppData, listPackData, notificationsData];
 }
 
 class $AssetsImagesBottomTabGen {
@@ -208,7 +185,6 @@ class $AssetsImagesSplashGen {
 class Assets {
   Assets._();
 
-  static const $AssetsDataGen data = $AssetsDataGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
