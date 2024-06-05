@@ -57,27 +57,6 @@ class AppApiService {
     );
   }
 
-  // Future<DataResponse<ApiAuthResponseData>?> register({
-  //   required String username,
-  //   required String email,
-  //   required String password,
-  //   required int gender,
-  // }) async {
-  //   return _noneAuthAppServerApiClient.request(
-  //     method: RestMethod.post,
-  //     path: '/v1/auth/register',
-  //     body: {
-  //       'username': username,
-  //       'gender': gender,
-  //       'email': email,
-  //       'password': password,
-  //       'password_confirmation': password,
-  //     },
-  //     decoder: (json) =>
-  //         ApiAuthResponseData.fromJson(json as Map<String, dynamic>),
-  //   );
-  // }
-
   Future<void> forgotPassword(String email) async {
     await _noneAuthAppServerApiClient.request(
       method: RestMethod.post,
